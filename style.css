@@ -11,7 +11,10 @@
   height: 800px;
   border: 1px solid #DDD;
   padding: 1px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .snake1 {
@@ -27,4 +30,9 @@
 .food {
   background: url('cat.jpg') center;
   background-size: cover;
+}
+
+#playagain {
+  margin: 0 auto;
+  width:200px;
 }
