@@ -1,14 +1,14 @@
 .tile {
-  width: 18px;
-  height: 18px;
+  width: 38px;
+  height: 38px;
   margin: 1px;
   background: #EEE;
   float: left;
 }
 
 #board {
-  width: 500px;
-  height: 400px;
+  width: 1000px;
+  height: 800px;
   border: 1px solid #DDD;
   padding: 1px;
 }

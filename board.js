@@ -9,7 +9,7 @@
     this.makeBoard();
     this.placeFood();
     this.placeSnake(this.snake1);
-    this.placeSnake(this.snake2);
+    // this.placeSnake(this.snake2);
 
 
   }
@@ -56,8 +56,10 @@
   }
 
   Board.prototype.placeSnake = function(snake) {
-    var row = Math.floor(Math.random() * 25);
-    var col = Math.floor(Math.random() * 20);
+    // var row = Math.floor(Math.random() * 25);
+    // var col = Math.floor(Math.random() * 20);
+    var row = 12;
+    var col = 10;
     snake.segments.push($('[data-id="' + row + ","+ col + '"]'));
     $('[data-id="' + row + "," + col + '"]').toggleClass(snake.cssClass);
   }
@@ -75,37 +77,37 @@
     board.keyBindings();
     this.intervalID = setInterval(function() {
       board.snake1.move();
-      board.snake2.move();
+      // board.snake2.move();
       board.collision(board.snake1);
-      board.collision(board.snake2);
-    }, 300);
+      // board.collision(board.snake2);
+    }, 200);
   };
 
   Board.prototype.keyBindings = function() {
     var board = this;
-    key('w', function() {
+    // key('w', function() {
+    //   board.snake1.dir = SnakeGame.Snake.DIRECTIONS[0];
+    // });
+    // key('s', function() {
+    //   board.snake1.dir = SnakeGame.Snake.DIRECTIONS[1];
+    // });
+    // key('a', function() {
+    //   board.snake1.dir = SnakeGame.Snake.DIRECTIONS[2];
+    // });
+    // key('d', function() {
+    //   board.snake1.dir = SnakeGame.Snake.DIRECTIONS[3];
+    // });
+    key('up', function() {
       board.snake1.dir = SnakeGame.Snake.DIRECTIONS[0];
     });
-    key('s', function() {
+    key('down', function() {
       board.snake1.dir = SnakeGame.Snake.DIRECTIONS[1];
     });
-    key('a', function() {
+    key('left', function() {
       board.snake1.dir = SnakeGame.Snake.DIRECTIONS[2];
     });
-    key('d', function() {
-      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[3];
-    });
-    key('up', function() {
-      board.snake2.dir = SnakeGame.Snake.DIRECTIONS[0];
-    });
-    key('down', function() {
-      board.snake2.dir = SnakeGame.Snake.DIRECTIONS[1];
-    });
-    key('left', function() {
-      board.snake2.dir = SnakeGame.Snake.DIRECTIONS[2];
-    });
     key('right', function() {
-      board.snake2.dir = SnakeGame.Snake.DIRECTIONS[3];
+      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[3];
     });
   }
 
