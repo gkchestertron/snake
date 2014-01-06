@@ -50,8 +50,8 @@
   }
 
   Board.prototype.placeOneFood = function() {
-    var row = Math.floor(Math.random() * 24);
-    var col = Math.floor(Math.random() * 19);
+    var row = Math.floor(Math.random() * 19);
+    var col = Math.floor(Math.random() * 24);
     console.log($('[data-id="' + row + "," + col + '"]').hasClass('snake1'))
     console.log($('[data-id="' + row + "," + col + '"]').hasClass('food'))
 
