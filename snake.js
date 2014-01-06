@@ -10,7 +10,10 @@
   Snake.DIRECTIONS = [[-1,0], [1,0], [0,-1], [0,1]];
 
   Snake.prototype.turn = function(newDir) {
-    this.dir = newDir;
+    if (this.dir[0] + newDir[0] !== 0 && this.dir[1] + newDir[1] !== 0)   
+    {
+      this.dir = newDir;
+    }
   }
 
   Snake.prototype.move = function() {

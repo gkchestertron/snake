@@ -33,9 +33,9 @@
     function snakeCollision() {
       var collision = false
       for(var i = 1; i < snake.segments.length; i++){
-        console.log(snake.segments[0].data("id"));
-        console.log(snake.segments[i].data("id"));
-        if (snake.segments[0].data("id") === snake.segments[i].data("id")) {
+        if (snake.segments[0].data("id") === snake.segments[i].data("id")) 
+        {
+          snake.segments[i].toggleClass('snake1');
           collision = true;
         }
       }
@@ -50,9 +50,17 @@
   }
 
   Board.prototype.placeOneFood = function() {
-    var row = Math.floor(Math.random() * 25);
-    var col = Math.floor(Math.random() * 20);
-    $('[data-id="' + row + "," + col + '"]').addClass('food');
+    var row = Math.floor(Math.random() * 24);
+    var col = Math.floor(Math.random() * 19);
+    console.log($('[data-id="' + row + "," + col + '"]').hasClass('snake1'))
+    console.log($('[data-id="' + row + "," + col + '"]').hasClass('food'))
+
+    if ($('[data-id="' + row + "," + col + '"]').hasClass('snake1') === false && $('[data-id="' + row + "," + col + '"]').hasClass('food') === false) {
+      console.log($('[data-id="' + row + "," + col + '"]').hasClass('snake1'))
+      $('[data-id="' + row + "," + col + '"]').addClass('food');
+    } else {
+      this.placeOneFood();
+    }
   }
 
   Board.prototype.placeSnake = function(snake) {
@@ -98,16 +106,16 @@
     //   board.snake1.dir = SnakeGame.Snake.DIRECTIONS[3];
     // });
     key('up', function() {
-      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[0];
+      board.snake1.turn(SnakeGame.Snake.DIRECTIONS[0]);
     });
     key('down', function() {
-      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[1];
+      board.snake1.turn(SnakeGame.Snake.DIRECTIONS[1]);
     });
     key('left', function() {
-      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[2];
+      board.snake1.turn(SnakeGame.Snake.DIRECTIONS[2]);
     });
     key('right', function() {
-      board.snake1.dir = SnakeGame.Snake.DIRECTIONS[3];
+      board.snake1.turn(SnakeGame.Snake.DIRECTIONS[3]);
     });
   }
 
