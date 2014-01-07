@@ -52,12 +52,12 @@
   Board.prototype.placeOneFood = function() {
     var row = Math.floor(Math.random() * 19);
     var col = Math.floor(Math.random() * 24);
-    console.log($('[data-id="' + row + "," + col + '"]').hasClass('snake1'))
-    console.log($('[data-id="' + row + "," + col + '"]').hasClass('food'))
 
     if ($('[data-id="' + row + "," + col + '"]').hasClass('snake1') === false && $('[data-id="' + row + "," + col + '"]').hasClass('food') === false) {
-      console.log($('[data-id="' + row + "," + col + '"]').hasClass('snake1'))
-      $('[data-id="' + row + "," + col + '"]').addClass('food');
+      var food = $('[data-id="' + row + "," + col + '"]')
+      food.fadeOut(0, function () {
+          food.addClass("food").fadeIn(200);
+      });
     } else {
       this.placeOneFood();
     }
