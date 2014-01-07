@@ -21,11 +21,21 @@
     var startCoords = this.segments[0].data("id").split(",");
     var row = (parseInt(startCoords[0]) + this.dir[0]);
     var col = (parseInt(startCoords[1]) + this.dir[1]);
-    this.segments.unshift($('[data-id="' + row + "," + col + '"]'));
-    $('[data-id="' + row + "," + col + '"]').toggleClass(that.cssClass);
+    var newSegment = $('[data-id="' + row + "," + col + '"]')
+    this.segments.unshift(newSegment);
+    newSegment.fadeOut(0, function () {
+          newSegment.addClass("snake1").fadeIn(50);
+      });
     if (this.segments.length > this.snakeLength){
       var oldSegment = this.segments.pop();
-      oldSegment.toggleClass(that.cssClass);
+      
+
+      oldSegment.fadeOut(100, function () {
+          oldSegment.removeClass("snake1").fadeIn(0);
+      });
+
+
+
     }
   }
 

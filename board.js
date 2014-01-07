@@ -35,7 +35,7 @@
       for(var i = 1; i < snake.segments.length; i++){
         if (snake.segments[0].data("id") === snake.segments[i].data("id")) 
         {
-          snake.segments[i].toggleClass('snake1');
+          snake.segments[i].addClass('snake1');
           collision = true;
         }
       }
@@ -86,7 +86,9 @@
     this.intervalID = setInterval(function() {
       board.snake1.move();
       // board.snake2.move();
-      board.collision(board.snake1);
+      setTimeout(function () {
+        board.collision(board.snake1);
+      }, 150);
       // board.collision(board.snake2);
     }, 200);
   };
